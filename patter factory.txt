@@ -1,0 +1,41 @@
+-classe caminhão
+public class Caminhao {
+  // atributos e métodos específicos para caminhões
+}
+
+
+
+-interface transporte 
+public interface Transporte {
+  public void entregar();
+}
+
+
+
+-classe caminhão transporte 
+public class CaminhaoTransporte implements Transporte {
+  public void entregar() {
+    // lógica específica para entregar um caminhão
+  }
+}
+
+
+
+-classe transporte factory
+public class TransporteFactory {
+  public Transporte criarTransporte(String tipoTransporte) {
+    if (tipoTransporte.equals("caminhao")) {
+      return new CaminhaoTransporte();
+    } else if (tipoTransporte.equals("navio")) {
+      return new NavioTransporte();
+    } else {
+      return null;
+    }
+  }
+}
+
+
+-exemplo de uso
+TransporteFactory factory = new TransporteFactory();
+Transporte transporte = factory.criarTransporte("caminhao");
+transporte.entregar();
